@@ -1,0 +1,6 @@
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\bin\typescriptTest.dll.config
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\bin\typescriptTest.dll
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\bin\typescriptTest.pdb
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\obj\Debug\typescriptTest.csprojResolveAssemblyReference.cache
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\obj\Debug\typescriptTest.dll
+c:\users\james\documents\visual studio 2013\Projects\typescriptTest\typescriptTest\obj\Debug\typescriptTest.pdb

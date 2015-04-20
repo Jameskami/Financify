@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Financify</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="app">
+        <header class="jumbotron">
+            <h1 class="header text-center">Financify</h1>
+        </header>
+        <section ng-controller="FormController">
+            <div class="jumbotron">
+                <select ng-model="yrStr">
+                    <option ng-repeat="year in event.getUniqueYears()">{{year}}</option>
+                </select>
+                <select ng-model="mStr">
+                    <option ng-repeat="month in event.getUniqueMonths()">{{month}}</option>
+                </select>
+                <button class="btn btn-default" ng-click="event.changeSelectedDate(mStr + '_' + yrStr)">Change Date</button>
+            </div>
+            <div>
+                <h3>Monthly expenses</h3>
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                        <th>Is recurring</th>
+                        <th>Mark for delete</th>
+                    </tr>
+                    <tr ng-repeat="expense in expenses">
+                        <td><input class="form-control" ng-model="expense.name"></td>
+                        <td><input class="form-control" ng-model="expense.amount"></td>
+                        <td><input ng-model="expense.isRecurring" type="checkbox" ng-checked="expense.isRecurring"></td>
+                        <td><input ng-model="expense.isMarkDelete" type="checkbox" ng-checked="expense.isMarkDelete"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{event.getTotal() | currency}}</td>
+                    </tr>
+                    <tr class="{{income.income - event.getTotal() >= 0 ? 'inTheGreen' : 'inTheRed'}}">
+                        <td>Income Remaining</td>
+                        <td>{{event.getRemaining() | currency}}</td>
+                    </tr>
+                </table>
+                <button class="btn btn-default" ng-click="event.saveEdits(expenses)">Save Edits</button>
+                <button class="btn btn-default" ng-click="event.addRow()">Add Row</button>
+            </div>
+            <div class="jumbotron">
+                <h3>Monthly Income</h3>
+                <input ng-model="income.income">
+                <button class="btn btn-default" ng-click="event.saveIncome()">Save Edit</button>
+            </div>
+        </section>
+        <footer class="jumbotron">
+            <p class="text-center">Stay Frugal</p>
+        </footer>
+    </div>
+    <div id="content"></div>
+    <script src="appModule.js"></script>
+    <script src="scopes.js"></script>
+    <script src="models.js"></script>
+    <script src="services.js"></script>
+    <script src="controllers.js"></script>
+</body>
+</html>

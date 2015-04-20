@@ -1,0 +1,13 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+    font-style: italic;
+}
+.inTheGreen {
+    color: rgb(0, 255, 33);
+}
+.inTheRed {
+    color: rgb(255, 10, 10)
+}
